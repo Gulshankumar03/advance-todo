@@ -7,6 +7,7 @@ import { auth } from "@clerk/nextjs";
 
 async function getData() {
   const { userId } = auth();
+  const userIdstring = userId as string;
   const data = await prisma.todo.findMany({
     select: {
       title: true,
@@ -15,13 +16,13 @@ async function getData() {
       createdAt: true,
     },
     where: {
-      userId: userId as string,
+      userId: userIdstring,
     },
     orderBy: {
       createdAt: "desc",
     },
   });
-  
+
   return data;
 }
 

@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 const Todo = ({ todo }: { todo: todoType }) => {
   const [editTodo, setEditTodo] = useState(false);
   const date = todo.createdAt;
-  const newdate = date?.toLocaleDateString();
+  const newdate = date?.toISOString().split('T')[0];;
   const newtime = date?.toLocaleTimeString();
 
   return (

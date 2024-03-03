@@ -6,7 +6,7 @@ import prisma from "@/lib/prismaDB";
 import { auth } from "@clerk/nextjs";
 
 const { userId } = auth();
-const userIdstring = userId as string;
+// const userIdstring = userId as string;
 
 export async function create(formData: FormData) {
   const input = formData.get("input") as string;
@@ -19,12 +19,12 @@ export async function create(formData: FormData) {
     await prisma.todo.create({
       data: {
         title: input,
-        userId: userIdstring,
+        userId,
       },
     });
   }
 
-  console.log(userIdstring);
+  // console.log(userIdstring);
   revalidatePath("/");
 }
 
