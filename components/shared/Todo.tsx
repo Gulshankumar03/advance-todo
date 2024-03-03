@@ -10,6 +10,7 @@ const Todo = ({ todo }: { todo: todoType }) => {
   const date = todo.createdAt;
   const newdate = date?.toLocaleDateString();
   const newtime = date?.toLocaleTimeString();
+
   return (
     <motion.div
       className=" flex justify-between flex-col 2xl:w-1/4 xl:w-1/3 pt-5  pb-5 px-8 mx-8 lg:mx-0 overflow-hidden bg-zinc-400 border-neutral-500 dark:text-white rounded-xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10"
